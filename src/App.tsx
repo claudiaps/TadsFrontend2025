@@ -1,12 +1,15 @@
-// import "./App.css";
-import ToDoList from "./components/TodoList";
+import { BrowserRouter, Route, Routes } from "react-router";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <div>
-      Aula 3 - Estado dos componentes
-      <ToDoList />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/home/:id" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
