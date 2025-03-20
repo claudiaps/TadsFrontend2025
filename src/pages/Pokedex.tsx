@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import "./Pokedex.css";
 
 const Pokedex = () => {
   // Variável de estado para armazenar o valor do input
@@ -29,18 +30,22 @@ const Pokedex = () => {
   }
 
   return (
-    <div>
+    <div className="container">
       {/* Declara o input e armazena no state o valor digitado */}
-      <input
-        placeholder="Digite o nome do pokémon"
-        value={inputText}
-        onChange={(e) => setInputText(e.target.value)}
-      />
-      {/* Botão para disparar a busca do pokémon */}
-      <button onClick={searchPokemon}>Buscar</button>
-      <p>Nome: {pokemon?.name}</p>
-      <p>Peso: {pokemon?.weight}</p>
-      <img src={pokemon?.sprites?.front_default} />
+      <div className="inputContainer">
+        <input
+          className="input"
+          placeholder="Digite o nome do pokémon"
+          value={inputText}
+          onChange={(e) => setInputText(e.target.value)}
+        />
+        {/* Botão para disparar a busca do pokémon */}
+        <button className="button" onClick={searchPokemon}>
+          Buscar
+        </button>
+      </div>
+      <p className="pokemonName">Nome: {pokemon?.name}</p>
+      <img src={pokemon?.sprites?.front_default} className="image" />
     </div>
   );
 };
