@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import "./Pokedex.css";
+import { Link } from "react-router";
 
 const Pokedex = () => {
   // Variável de estado para armazenar o valor do input
@@ -45,6 +46,7 @@ const Pokedex = () => {
         </button>
       </div>
       <p className="pokemonName">Nome: {pokemon?.name}</p>
+      <Link to={`/pokedex/${pokemon?.name}`}>Ver detalhes</Link>
       <img src={pokemon?.sprites?.front_default} className="image" />
     </div>
   );
