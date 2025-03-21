@@ -44,6 +44,9 @@ const PokemonInfo = () => {
       <h1>Pokemon Info - {name}</h1>
       <p>Nome: {pokemon?.name}</p>
       <p>Peso: {pokemon?.weight}kg</p>
+      {pokemon?.types.map((arrayType) => {
+        return <span>{arrayType?.type?.name} </span>;
+      })}
     </div>
   );
 };
