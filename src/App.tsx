@@ -4,15 +4,17 @@ import Home from "./pages/Home";
 import Pokedex from "./pages/Pokedex";
 import Header from "./components/Header";
 import PokemonInfo from "./pages/PokemonInfo";
+import Forms from "./pages/Forms";
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
+      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/home/:id" element={<Home />} />
         <Route path="/pokedex" element={<Pokedex />} />
+        <Route path="/forms" element={<Forms />} />
         <Route path="/pokedex/:name" element={<PokemonInfo />} />
       </Routes>
     </BrowserRouter>
