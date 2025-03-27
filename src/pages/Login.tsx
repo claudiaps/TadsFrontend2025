@@ -1,17 +1,46 @@
-import { Link } from "react-router";
+import { useState } from "react";
+import { useNavigate } from "react-router";
+import api from "../services/api";
+import { useAuth } from "../contexts/AuthContext";
 
 const Login = () => {
-  const id = 10;
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const response = await api.post("/auth/login", {
+        username: email,
+        password: password,
+      });
+      const token = response.data.accessToken;
+      login(token);
+      navigate("/pokedex");
+    } catch (error) {
+      console.log(error);
+      alert("Erro ao fazer login.");
+    }
+  };
 
   return (
-    <div>
-      Login
-      <Link to={`/home/${id}`}>Ir para Home</Link>
-      {/* <Link to="/home/10">Ir para Home</Link> */}
-    </div>
+    <form onSubmit={handleSubmit}>
+      <input
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="Email"
+      />
+      <input
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        type="password"
+        placeholder="Senha"
+      />
+      <button type="submit">Entrar</button>
+    </form>
   );
 };
 
 export default Login;
-
-//slr
