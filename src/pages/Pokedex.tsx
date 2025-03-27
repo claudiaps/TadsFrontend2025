@@ -2,12 +2,14 @@ import axios from "axios";
 import { useState } from "react";
 import "./Pokedex.css";
 import { Link } from "react-router";
+import { useAuth } from "../contexts/AuthContext";
 
 const Pokedex = () => {
   // Variável de estado para armazenar o valor do input
   const [inputText, setInputText] = useState("");
   const [loading, setLoading] = useState(false);
   const [pokemon, setPokemon] = useState();
+  const { logout } = useAuth();
 
   //   Função que irá buscar o Pokémon
   const searchPokemon = async () => {
@@ -33,6 +35,7 @@ const Pokedex = () => {
   return (
     <div className="container">
       {/* Declara o input e armazena no state o valor digitado */}
+      <button onClick={() => logout()}>Log out</button>
       <div className="inputContainer">
         <input
           className="input"
