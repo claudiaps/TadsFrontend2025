@@ -44,3 +44,29 @@ const Login = () => {
 };
 
 export default Login;
+
+// const Login = ({ name }: { name: string }) => {
+//   const [contador, setContador] = useState(0);
+
+//   useEffect(() => {
+//     console.log("Montagem: ", contador);
+//     console.log("Nome: ", name);
+//   }, []);
+
+//   useEffect(() => {
+//     console.log("Atualização: ", contador);
+//     return () => {
+//       console.log("Desmontagem: ", contador);
+//     };
+//   }, [contador]);
+
+//   return (
+//     <div>
+//       <div>Contador: {contador}</div>
+//       <button onClick={() => setContador(contador + 1)}>Incrementar</button>
+//       <button onClick={() => setContador(contador - 1)}>Decrementar</button>
+//     </div>
+//   );
+// };
+
+// export default Login;
