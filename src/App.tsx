@@ -11,6 +11,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/home/:id/:name" element={<Home />} />
         <Route
           element={
             <PrivateRoute>
@@ -18,7 +19,6 @@ function App() {
             </PrivateRoute>
           }
         >
-          <Route path="/home/:id" element={<Home />} />
           <Route path="/pokedex" element={<Pokedex />} />
           <Route path="/forms" element={<Forms />} />
           <Route path="/pokedex/:name" element={<PokemonInfo />} />

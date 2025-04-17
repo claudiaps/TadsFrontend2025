@@ -26,10 +26,9 @@ const Pokedex = () => {
       setLoading(false);
     }
   };
-  console.log(pokemon);
 
   if (loading) {
-    return <div>Carregando...</div>;
+    return <div>Loading...</div>;
   }
 
   return (
@@ -48,8 +47,8 @@ const Pokedex = () => {
           Buscar
         </button>
       </div>
-      <p className="pokemonName">Nome: {pokemon?.name}</p>
-      <Link to={`/pokedex/${pokemon?.name}`}>Ver detalhes</Link>
+      <p className="pokemonName">Name: {pokemon?.name}</p>
+      <Link to={`/pokedex/${pokemon?.name}`}>Details</Link>
       <img src={pokemon?.sprites?.front_default} className="image" />
     </div>
   );
